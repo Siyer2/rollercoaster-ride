@@ -15,6 +15,10 @@ async function main() {
 
     const age = parseInt(answer);
     console.log(`You are ${age} years old.`);
+
+    if (age < 18) {
+      console.log("You cannot be here");
+    }
   });
 
   //==== End coding here ====//
