@@ -16,6 +16,12 @@ async function main() {
     const age = parseInt(answer);
     console.log(`You are ${age} years old.`);
 
+    // Ensure that age provided is a number and that they are not over 120
+    if (isInvalidAge(age)) {
+      console.log("BAD USER INPUT!");
+      return;
+    }
+
     if (age < 18) {
       console.log("You cannot be here");
     } else {
@@ -24,6 +30,14 @@ async function main() {
   });
 
   //==== End coding here ====//
+}
+
+function isInvalidAge(userInput: number): boolean {
+  if (isNaN(userInput) || userInput > 120 || userInput < 0) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 //==== Don't change this ====//
