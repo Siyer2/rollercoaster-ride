@@ -16,10 +16,17 @@ async function main() {
     const age = parseInt(answer);
     console.log(`You are ${age} years old.`);
 
-    if (age < 18) {
-      console.log("You cannot be here");
+    // Ensure that age is actually a number OR if it is a number, it's less than 120
+    if (isNaN(age) || age > 120) {
+      console.log(
+        "Hey! This is not a number OR this number is WAY too big to be true!"
+      );
     } else {
-      console.log("Enjoy the ride!");
+      if (age < 18) {
+        console.log("You cannot be here");
+      } else {
+        console.log("Enjoy the ride!");
+      }
     }
   });
 
