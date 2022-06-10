@@ -18,6 +18,8 @@ async function main() {
 
     if (age < 18) {
       console.log("You cannot be here");
+    } else {
+      console.log("Enjoy the ride!");
     }
   });
 
