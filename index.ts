@@ -4,41 +4,32 @@ let rl = readline.createInterface({
   output: process.stdout,
 });
 
-async function main() {
-  //==== Start coding here ====//
+console.log(
+  "Welcome to our Rollercoaster Ride. Before we begin, we need to check some details.\n\n"
+);
 
-  const question1 =
-    "Welcome to our Rollercoaster Ride. Before we begin, we need to check some details.\n\nHow old are you? ";
+// Ask first question
+function question1() {
+  return new Promise((resolve, _) => {
+    rl.question("How old are you? ", (answer) => {
+      const age = parseInt(answer);
+      console.log(`You are ${age} years old.`);
 
-  rl.question(question1, (answer) => {
-    rl.close();
+      if (age < 18) {
+        console.log("You cannot be here");
+      } else {
+        console.log("Enjoy the ride!");
+      }
 
-    const age = parseInt(answer);
-    console.log(`You are ${age} years old.`);
-
-    // Ensure that age provided is a number and that they are not over 120
-    if (isInvalidAge(age)) {
-      console.log("BAD USER INPUT!");
-      return;
-    }
-
-    if (age < 18) {
-      console.log("You cannot be here");
-    } else {
-      console.log("Enjoy the ride!");
-    }
+      resolve(answer);
+    });
   });
-
-  //==== End coding here ====//
-}
-
-function isInvalidAge(userInput: number): boolean {
-  if (isNaN(userInput) || userInput > 120 || userInput < 0) {
-    return true;
-  } else {
-    return false;
-  }
 }
 
 //==== Don't change this ====//
+const main = async () => {
+  await question1();
+
+  rl.close();
+};
 main();
