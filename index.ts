@@ -4,6 +4,7 @@ let rl = readline.createInterface({
   output: process.stdout,
 });
 
+//==== Start coding here ====//
 console.log(
   "Welcome to our Rollercoaster Ride. Before we begin, we need to check some details.\n\n"
 );
@@ -25,6 +26,8 @@ function question1() {
     });
   });
 }
+
+//==== Stop coding here ====//
 
 //==== Don't change this ====//
 const main = async () => {
